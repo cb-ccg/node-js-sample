@@ -5,21 +5,20 @@
 var http = require ("http");
 var net = require ("net"); 
 
-console.log ('Starting....2');
+console.log ('Starting....v3');
 var server=net.createServer (function(socket) { 
 
 	socket.on ('connection', function(socket) { 
 		console.log ('server connected...'); 
-		socket.end ();
 	}); 
 	
 	socket.on ('data', function(message) { 
-		console.log ('socket message:' + message); 
-		socket.write ('You wrote:' + message); 
+		console.log ('machine message:' + message); 
+		socket.write (message); 
 	}); 
 	
 	socket.on ('end', function() {
-		console.log ('server disconnected...');
+		console.log ('socket disconnected...');
 	});
 	
 	socket.on ('error', function(error){ 
